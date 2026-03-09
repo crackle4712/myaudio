@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Quran Player</title>
+    <title>Quran Station</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body { background: #000; color: #fff; text-align: center; padding: 10px; font-family: sans-serif; }
-        .player-container { border: 2px solid #444; padding: 15px; background: #111; }
-        /* This forces the audio bar to be visible and wide */
-        audio { width: 100%; display: block; margin: 20px 0; height: 45px; }
-        .info { font-size: 14px; color: #0f0; margin-bottom: 10px; }
+        body { background: #000; color: #fff; text-align: center; padding: 20px; font-family: sans-serif; }
+        .box { border: 2px solid #333; padding: 15px; background: #111; border-radius: 8px; }
+        .btn { 
+            display: block; 
+            background: #007bff; 
+            color: #fff; 
+            padding: 15px; 
+            margin: 20px 0; 
+            text-decoration: none; 
+            font-weight: bold; 
+            border-radius: 4px;
+        }
+        audio { width: 100%; margin: 15px 0; }
     </style>
 </head>
 <body>
 
-    <div class="player-container">
-        <div class="info">Mishary Al-Afasy (9 Hours)</div>
-        
+    <div class="box">
+        <h3>Mishary Al-Afasy</h3>
+        <p style="color:#888; font-size:12px;">Full Quran (9 Hours)</p>
+
         <audio controls preload="metadata">
             <source src="https://archive.org/download/the-complete-holy-quran-by-sheikh-mishary-al-afasy-1-3/The%20Complete%20Holy%20Quran%20By%20Sheikh-Mishary-Al-Afasy-1-3.mp3" type="audio/mpeg">
         </audio>
 
-        <hr color="#333">
+        <hr border="1" color="#222">
 
-        <p style="font-size: 12px;">If player is blank, click below:</p>
-        <a href="https://archive.org/download/the-complete-holy-quran-by-sheikh-mishary-al-afasy-1-3/The%20Complete%20Holy%20Quran%20By%20Sheikh-Mishary-Al-Afasy-1-3.mp3" 
-           style="color: #58a6ff; text-decoration: none; font-weight: bold;">
-           [ OPEN IN PHONE PLAYER ]
+        <p>If above fails, use this:</p>
+        <a href="https://archive.org/download/the-complete-holy-quran-by-sheikh-mishary-al-afasy-1-3/The%20Complete%20Holy%20Quran%20By%20Sheikh-Mishary-Al-Afasy-1-3.mp3" class="btn">
+            LAUNCH SYSTEM PLAYER
         </a>
+        
+        <p style="font-size: 10px; color: #555;">Error 404? Ensure Opera Mini Data Savings is OFF.</p>
     </div>
 
 </body>
