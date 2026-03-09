@@ -1,23 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>9H Audio Player</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { background: #000; color: #0f0; text-align: center; font-family: monospace; padding-top: 30px; }
+        button { width: 80%; height: 60px; margin: 10px; font-weight: bold; font-size: 18px; }
+        #status { color: #888; margin-top: 10px; font-size: 12px; }
+    </style>
+</head>
 <body>
-    <h2>Now Playing</h2>
-    
-    <audio id="myAudio" preload="none">
-        <source src="https://www.dropbox.com/scl/fi/jl2rgwkucjd7tx2xe9k6e/The-Complete-Holy-Quran-By-Sheikh-Mishary-Al-Afasy-1-3.mp3?rlkey=nufwqgunjzwtne62t5a5xm02n&st=5soqbotg&raw=1" type="audio/mpeg">
+    <h2>NOKIA STATION</h2>
+    <p id="status">Status: Ready</p>
+
+    <audio id="audioPlayer" preload="none">
+        <source src="https://archive.org/download/the-complete-holy-quran-by-sheikh-mishary-al-afasy-1-3/The%20Complete%20Holy%20Quran%20By%20Sheikh%20Mishary%20Al%20Afasy%201%203.mp3" type="audio/mpeg">
     </audio>
 
-    <div style="margin-top: 20px;">
-        <button onclick="playAudio()" style="padding: 20px 40px; font-size: 20px;">PLAY</button>
-        <button onclick="pauseAudio()" style="padding: 20px 40px; font-size: 20px;">PAUSE</button>
-    </div>
+    <button onclick="start()">[ PLAY ]</button><br>
+    <button onclick="stop()">[ PAUSE ]</button>
 
     <script>
-        var x = document.getElementById("myAudio"); 
-        function playAudio() { 
-            x.play(); 
-        } 
-        function pauseAudio() { 
-            x.pause(); 
-        } 
+        var player = document.getElementById("audioPlayer");
+        var statusTxt = document.getElementById("status");
+
+        function start() {
+            statusTxt.innerHTML = "Status: Buffering (Wait 30s)...";
+            player.play().catch(function(error) {
+                statusTxt.innerHTML = "Status: Error - " + error.message;
+            });
+        }
+
+        player.onplaying = function() { statusTxt.innerHTML = "Status: Playing Now"; };
+        player.onwaiting = function() { statusTxt.innerHTML = "Status: Buffering..."; };
+
+        function stop() { player.pause(); statusTxt.innerHTML = "Status: Paused"; }
     </script>
 </body>
-
+</html>
